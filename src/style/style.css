@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'font1';
+  /*字体名称*/
+  src: url('../font/HeroicCondensed-Medium.ttf');
+  /*字体源文件*/
+}
+@font-face {
+  font-family: 'font2';
+  /*字体名称*/
+  src: url('../font/MicrosoftYaHeiLight.ttf');
+  /*字体源文件*/
+}
+.title {
+  font-family: font1;
+}
+.box {
+  width: 200px;
+  height: 200px;
+  background: url('../img/bg.png') no-repeat;
+  font-family: font2;
+}
