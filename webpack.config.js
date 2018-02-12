@@ -4,7 +4,8 @@ const path = require('path') // 引入node核心api
 // 声明一个webpackConfig 对象进行公共配置
 const webpackConfig = {
   entry: {
-    main: './src/main.js' // 入口文件 （对象的形式）
+    main: './src/main.js', // 入口文件 （对象的形式）
+    home: './src/home.js' // 入口文件 （对象的形式）
   },
   // entry: './src/main.js' // 入口文件 (字符串形式的默认输出为 main.js)
   output: {
@@ -13,6 +14,11 @@ const webpackConfig = {
   },
   module: {
     rules: [
+      // css loader
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader'
+      },
       // scss loader
       {
         test: /\.scss$/,
@@ -33,13 +39,10 @@ const webpackConfig = {
         test: /\.js$/,
         exclude: path.resolve(__dirname, 'node_modules'), // es6编译时，不编译node_module文件
         include: path.resolve(__dirname, 'src'), // es6 编译时，便宜src文件
-        loader: 'babel-loader' // 通过babel来进行转码
-        /*
-        *query: {
-        *      presets: ['latest'] //按照最新的ES6语法规则去转换
-        *}
-        *
-        */
+        loader: 'babel-loader', // 通过babel来进行转码
+        query: {
+          presets: ['latest'] // 按照最新的ES6语法规则去转换
+        }
       },
       // js eslint-loader
       {
